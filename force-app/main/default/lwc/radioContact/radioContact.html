@@ -1,0 +1,35 @@
+<template>
+
+
+    <div class="slds-m-around_small">
+        <div>
+            <c-contacts onsearch={handleEvent}>  </c-contacts>
+            </div>
+                <div>
+
+                    <lightning-radio-group name="radioGroup"
+                          label="Radio Group"
+                          options={options}
+                          value={value}
+                             type="radio"></lightning-radio-group>
+                    <lightning-button label="Contacts" onclick={searchContact}>
+                    </lightning-button>
+                    <template if:true={contactRecords}>
+                        <template for:each={wiredContacts.data} for:item="contact">
+                            <li key={contact.Id}>
+                                {contact.Name}, {contact.Email}
+                            </li>
+                        </template>
+                    </template>
+                    <template if:true={contactRecords}>
+                        {contactRecords.error}
+                    </template>
+
+                   
+                </div>
+            
+            
+
+    </div>
+    
+</template>
